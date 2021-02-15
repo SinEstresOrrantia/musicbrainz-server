@@ -916,6 +916,7 @@ sub external_search
             my @entities = map { $_->entity } @results;
             $self->c->model('Area')->load_ids(@entities);
             $self->c->model('Area')->load_containment(@entities);
+            $self->c->model('AreaType')->load(@entities);
         }
 
         my $pager = Data::Page->new;
